@@ -1,0 +1,14 @@
+.page-changer > button {
+    padding: .5rem;
+    margin: 1rem .4rem;
+    min-width: 2rem;
+    min-height: 2rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: whitesmoke;
+}
+
+.page-changer > button:active {
+    background: grey;
+}

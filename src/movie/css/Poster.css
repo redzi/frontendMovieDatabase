@@ -1,0 +1,6 @@
+.poster > img {
+    border-radius: 8px;
+    width: 7rem;
+    height: auto;
+    display: block;
+}
