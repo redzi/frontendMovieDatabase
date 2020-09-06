@@ -5,24 +5,28 @@ import Button from "./Button";
 
 function PageChanger (props) {
 
-    const generateSpan = (current, all, perPage=10) => {
+    const goFirst = (current, all, perPage=10) => {
+        //TODO implement
+    }
 
-        //todo make page changing shortcuts
+    const goLast = (current, all, perPage=10) => {
+        //TODO implement
+    }
 
-        return (
-            <div className='page-span'>
-                <span>1</span>
-                <span>...</span>
-                <span>5</span>
-            </div>
-        )
+    const goNext = (current, all, perPage=10) => {
+        //TODO implement
+    }
+
+    const goPrevious = (current, all, perPage=10) => {
+        //TODO implement
     }
 
     return (
         <div className='page-changer'>
-            <Button pointer='<'/>
-            {generateSpan(props.currentPageResultCount, props.allResultCount)}
-            <Button pointer='>'/>
+            <Button pointer='<<' onChange={goFirst}/>
+            <Button pointer='<' onChange={goPrevious}/>
+            <Button pointer='>' onChange={goNext}/>
+            <Button pointer='>>' onChange={goLast}/>
         </div>
     )
 }
