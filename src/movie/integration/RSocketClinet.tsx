@@ -4,14 +4,14 @@ import RSocketWebSocketClient from "rsocket-websocket-client";
 const ENDPOINT = 'ws://localhost:7000'
 const ROUTE = 'general'
 
-export default function connect() {
+export default function connect(): Promise<Data> {
 
-    return new Promise((resolve, reject) => {
+    return new Promise<Data>((resolve, reject) => {
         console.log("connecting with RSocket...");
-        const transport = new RSocketWebSocketClient({
+        const transport: any = new RSocketWebSocketClient({
             url: ENDPOINT
         });
-        const client = new RSocketClient({
+        const client: any = new RSocketClient({
             // send/receive JSON objects instead of strings/buffers
             serializers: {
                 data: JsonSerializer,
@@ -30,29 +30,46 @@ export default function connect() {
             transport
         });
         client.connect().subscribe({
-            onComplete: socket => {
+            onComplete: (socket: any) => {
                 socket.requestResponse({
                     data: {
                         name: 'The Matrix'
                     },
                     metadata: String.fromCharCode(ROUTE.length) + ROUTE
                 }).subscribe({
-                    onComplete: data => {
+                    onComplete: (data: OuterData) => {
                         console.log('got response')
                         //TODO use data
                         console.log(data.data)
                         resolve(data.data)
                     },
-                    onError: error => {
+                    onError: (error: any) => {
                         console.log("got connection error")
                         console.error(error)
                         reject()
                     },
-                    onSubscribe: subscription => {
+                    onSubscribe: (subscription: any) => {
                         console.log('is subscribed')
                     }
                 })
             }
         })
     })
+}
+
+type OuterData = {
+    data: Data
+}
+
+export interface Data {
+    infos: Array<Result>,
+    totalResultsNumber: number,
+    currentPageResultNumber: number
+}
+
+export type Result = {
+    imdbID: string,
+    title: string,
+    year: string,
+    poster: string
 }

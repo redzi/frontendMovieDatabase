@@ -6,13 +6,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.7",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "@types/rsocket-core": "0.0.5",
+    "@types/rsocket-websocket-client": "0.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "rsocket-core": "0.0.19",
     "rsocket-flowable": "0.0.14",
     "rsocket-tcp-client": "0.0.19",
-    "rsocket-websocket-client": "0.0.19"
+    "rsocket-websocket-client": "0.0.19",
+    "typescript": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

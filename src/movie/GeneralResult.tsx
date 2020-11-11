@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Title from './Titile';
 import Poster from './Poster';
 import './css/GeneralResult.css'
 
-function GeneralResult (props) {
+function GeneralResult (props: GeneralResultPropTypes): JSX.Element {
 
     return (
         <div className='general-result'>
@@ -17,11 +16,11 @@ function GeneralResult (props) {
     );
 }
 
-GeneralResult.propTypes = {
-    title: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    imdbID: PropTypes.string.isRequired
+export type GeneralResultPropTypes = {
+    title: string,
+    year: string,
+    poster: string,
+    imdbID: string
 }
 
 export default GeneralResult;

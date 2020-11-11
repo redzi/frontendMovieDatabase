@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from 'prop-types';
 
-class Title extends React.Component {
-    constructor(props) {
+class Title extends React.Component<TitlePropTypes> {
+    title: String;
+    constructor(props: TitlePropTypes) {
         super(props);
         this.title = props.title
     }
@@ -14,8 +14,8 @@ class Title extends React.Component {
     }
 }
 
-Title.propTypes = {
-    title: PropTypes.string
+export type TitlePropTypes = {
+    title: string
 }
 
 export default Title
